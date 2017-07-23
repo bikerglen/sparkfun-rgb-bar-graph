@@ -8,7 +8,7 @@ J3-5    GND      GND        VIN
                  1          3.3V   +3.3     J3-6
 J3-9    DAT      2          23     A3       J3-8
 J3-10   LAT*     3          22     A2       J3-2
-J3-     OFF      4          21
+J3-3    OFF      4          21
                  5          20
                  6          19
                  7          18
