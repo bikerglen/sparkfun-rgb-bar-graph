@@ -20,4 +20,4 @@ For my 96 x 64 video "wall" this works out to
 
 	(50e6) / (16 * 960 * (2^4 - 1)) = 217 Hz
 
-In theory the base delay of 960 for these panels could be lowered to 22 + 2 * 96 = 214.
+In theory the base delay of 960 for these panels could be lowered to 22 + 2 * 192 = 406.
