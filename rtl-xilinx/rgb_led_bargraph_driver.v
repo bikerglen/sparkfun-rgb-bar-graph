@@ -53,6 +53,8 @@ localparam WAIT = 0,
 		   READ = 4,
 		   SHIFT1 = 5,
 		   SHIFT2 = 6;
+		   
+localparam BASE_DELAY = 54;
 
 
 //---------------------------------------------------------------------------------------------
@@ -132,24 +134,24 @@ begin
 			// for 25MHz clock, use 480-1,  960-1, 1920-1, 3840-1 below
 			// for 50MHz clock, use 960-1, 1920-1, 3840-1, 7680-1 below
 			case (rd_bit)
-				0: timer <=   1*240-1;
-				1: timer <=   2*240-1;
-				2: timer <=   4*240-1;
-				3: timer <=   8*240-1;
-				4: timer <=  16*240-1;
-				5: timer <=  32*240-1;
-				6: timer <=  64*240-1;
-				7: timer <= 128*240-1;
+				0: timer <=   1*BASE_DELAY-1;
+				1: timer <=   2*BASE_DELAY-1;
+				2: timer <=   4*BASE_DELAY-1;
+				3: timer <=   8*BASE_DELAY-1;
+				4: timer <=  16*BASE_DELAY-1;
+				5: timer <=  32*BASE_DELAY-1;
+				6: timer <=  64*BASE_DELAY-1;
+				7: timer <= 128*BASE_DELAY-1;
 			endcase
 			case (rd_bit)
-				0: blanktimer <= ((  1*240-1) * level) >> 8;
-				1: blanktimer <= ((  2*240-1) * level) >> 8;
-				2: blanktimer <= ((  4*240-1) * level) >> 8;
-				3: blanktimer <= ((  8*240-1) * level) >> 8;
-				4: blanktimer <= (( 16*240-1) * level) >> 8;
-				5: blanktimer <= (( 32*240-1) * level) >> 8;
-				6: blanktimer <= (( 64*240-1) * level) >> 8;
-				7: blanktimer <= ((128*240-1) * level) >> 8;
+				0: blanktimer <= ((  1*BASE_DELAY-1) * level) >> 8;
+				1: blanktimer <= ((  2*BASE_DELAY-1) * level) >> 8;
+				2: blanktimer <= ((  4*BASE_DELAY-1) * level) >> 8;
+				3: blanktimer <= ((  8*BASE_DELAY-1) * level) >> 8;
+				4: blanktimer <= (( 16*BASE_DELAY-1) * level) >> 8;
+				5: blanktimer <= (( 32*BASE_DELAY-1) * level) >> 8;
+				6: blanktimer <= (( 64*BASE_DELAY-1) * level) >> 8;
+				7: blanktimer <= ((128*BASE_DELAY-1) * level) >> 8;
 			endcase
 		end
 		else
