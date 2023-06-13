@@ -54,7 +54,7 @@ localparam WAIT = 0,
 		   SHIFT1 = 5,
 		   SHIFT2 = 6;
 		   
-localparam BASE_DELAY = 54;
+localparam BASE_DELAY = (22+32+41);
 
 
 //---------------------------------------------------------------------------------------------
@@ -64,7 +64,7 @@ localparam BASE_DELAY = 54;
 reg   [2:0] state;
 reg  [15:0] timer;
 reg  [15:0] blanktimer;
-reg   [3:0] delay;
+reg   [5:0] delay;          // need to wait 1us after asserting blank before asserting latch
 reg         rd_buffer;		// buffer 0 to 1
 reg   [3:0] rd_row;			// row 0 to 15
 reg   [3:0] rd_col;			// col 0 to 15
@@ -179,7 +179,7 @@ begin
 				if (timer == 0)
 				begin
 					// blank <= 1;
-					delay <= 8;
+					delay <= 49;  // increased from 8 to 49 -> 41 additional clocks
 					state <= BLANK;
 				end
 			end
